@@ -8,7 +8,11 @@ let SELECTED_PIECE=null;
 let START_TIME=null;
 let END_TIME=null;
 
+let POP_SOUND=new Audio('pop.mp3')
+POP_SOUND.volume = 0.1;
 
+let WIN_SOUND=new Audio('mixkit-animated-small-group-applause-523.wav')
+WIN_SOUND.volume = 0.5;
 
 function main() {
     CANVAS = document.getElementById("myCanvas");
@@ -77,6 +81,7 @@ function isComplete() {
             return false;
         }
     }
+    WIN_SOUND.play();
     return true;
 }
 
@@ -258,6 +263,7 @@ class Piece{
         this.x=this.xCorrect;
         this.y=this.yCorrect;
         this.correct = true;
+        POP_SOUND.play();
     }
     
 }
